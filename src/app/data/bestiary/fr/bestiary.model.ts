@@ -3,6 +3,7 @@ export interface MobDetails {
   name: string;
   level: string;
   keywords: string;
+  description?: string;
   xp: string;
   type: string;
   body?: string;
@@ -13,15 +14,17 @@ export interface MobDetails {
   charisma?: string;
   intelligence?: string;
   agility?: string;
+  luck?: string;
   skills?: string[];
   health: string;
   initiative: string;
   defense: string;
   luckPoints?: string;
+  meleeBonus? : string;
   carryWeight?: string;
-  melee: string;
-  range: string;
-  other: string;
+  melee?: string;
+  range?: string;
+  other?: string;
   ballisticR: string;
   energyR: string;
   radiationR: string;

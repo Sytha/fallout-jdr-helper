@@ -1,5 +1,7 @@
 import {MobDetails, SubType} from "./bestiary.model";
 import {CREATURES} from "./CREATURES";
+import {CHARACTERS} from "./CHARACTERS";
+import {ROBOTS} from "./ROBOTS";
 
 export const getBestiaryList = (subType: SubType): MobDetails[] => {
   let bestiary = [];
@@ -8,10 +10,10 @@ export const getBestiaryList = (subType: SubType): MobDetails[] => {
       bestiary = CREATURES;
       break;
     case SubType.ROBOTS:
-      bestiary = [];
+      bestiary = ROBOTS;
       break;
     case SubType.THINKERS:
-      bestiary = [];
+      bestiary = CHARACTERS;
       break;
     default:
       bestiary = [];
