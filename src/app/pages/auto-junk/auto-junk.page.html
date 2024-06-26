@@ -1,0 +1,97 @@
+<ion-app>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{"APP.MENU.AUTOJUNK" | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-note>{{"AUTOJUNK.HELP" | translate }}</ion-note>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col class="ion-no-padding">
+          <ion-item>
+            <ion-input [label]="'AUTOJUNK.JUNKQUANTITY' | translate" labelPlacement="stacked" [min]="0" type="number" [(ngModel)]="junkQuantity"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <ion-item>
+            <ion-input [label]="'AUTOJUNK.INTELLIGENCE' | translate" labelPlacement="stacked" [min]="0" [max]="10" type="number" [(ngModel)]="intelligence"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <ion-item>
+            <ion-input [label]="'AUTOJUNK.REPAIRSKILL' | translate" labelPlacement="stacked"  [min]="0" [max]="6" type="number" [(ngModel)]="repairSkill"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col >
+          <ion-item>
+            <ion-checkbox id="repairSkillTag" labelPlacement="stacked" [(ngModel)]="repairSkillIsTag">{{'AUTOJUNK.REPAIRSKILLTAG' | translate}}</ion-checkbox>
+          </ion-item>
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <ion-item>
+            <ion-input [label]="'AUTOJUNK.RECYCLINGSKILL' | translate" labelPlacement="stacked"  [min]="0" [max]="2" type="number" [(ngModel)]="recyclerSkill"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item>
+            <ion-select placeholder="..." [(ngModel)]="selectedPriority" interface="popover"
+                        [label]="'AUTOJUNK.PRIORITY' | translate">
+              <ion-select-option [value]="priority" *ngFor="let priority of priorities">{{priority}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-item>
+            <ion-select placeholder="..." [(ngModel)]="selectedDifficultyConsequence" interface="popover"
+                        [label]="'AUTOJUNK.DIFFICULTYCONSEQUENCE' | translate">
+              <ion-select-option [value]="consequence" *ngFor="let consequence of difficultyConsequencies">{{consequence}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="displayLoot">
+        <ion-col class="header">{{'AUTOJUNK.RESULT.GENERATEDCOMMON' |translate}}</ion-col>
+        <ion-col class="header">{{'AUTOJUNK.RESULT.GENERATEDUNCOMMON' |translate}}</ion-col>
+        <ion-col class="header">{{'AUTOJUNK.RESULT.GENERATEDRARE' |translate}}</ion-col>
+        <ion-col class="header">{{'AUTOJUNK.RESULT.TOTALTIMEELAPSED' |translate}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="displayLoot">
+        <ion-col class="result">{{generatedCommonMaterial}}</ion-col>
+        <ion-col class="result">{{generatedUncommonMaterial}}</ion-col>
+        <ion-col class="result">{{generatedRareMaterial}}</ion-col>
+        <ion-col class="result">{{totalTimeElapsed}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="displayLoot">
+        <ion-col class="header">{{'AUTOJUNK.RESULT.TOTALSUCCESS' |translate}}</ion-col>
+        <ion-col class="header">{{'AUTOJUNK.RESULT.TOTALCRITICAL' |translate}}</ion-col>
+        <ion-col class="header">{{'AUTOJUNK.RESULT.TOTALDIFFICULTIES' |translate}}</ion-col>
+        <ion-col class="header">{{'AUTOJUNK.RESULT.TOTALLOSTITEM' |translate}}</ion-col>
+        <ion-col class="header">{{'AUTOJUNK.RESULT.TIMEBALANCE' |translate}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="displayLoot">
+        <ion-col class="result">{{totalSuccess}}</ion-col>
+        <ion-col class="result">{{totalCriticalSuccess}}</ion-col>
+        <ion-col class="result">{{totalDifficulties}}</ion-col>
+        <ion-col class="result">{{totalLostItems}}</ion-col>
+        <ion-col class="result">{{bonusTimeBalance}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="ion-no-padding">
+          <ion-button (click)="generateLoot()">{{"AUTOLOOT.GENERATE" | translate }}</ion-button>
+          <ion-button *ngIf="displayLoot" color="secondary"
+                      (click)="reset()">{{"AUTOLOOT.RECONFIGURE" | translate }}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>

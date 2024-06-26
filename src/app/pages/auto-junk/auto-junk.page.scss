@@ -1,0 +1,28 @@
+ion-range {
+  padding-top: 0;
+
+  ::ng-deep ion-label {
+    font-size: 16px;
+  }
+}
+
+#repairSkillTag::part(label) {
+  margin-bottom: 0px;
+}
+
+ion-col.result, ion-col.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--dv-background-accent-dark);
+
+  ul > li {
+    list-style-type: none
+  }
+}
+
+ion-col.header {
+  background-color: var(--dv-background-accent);
+  color: #fff;
+}
+

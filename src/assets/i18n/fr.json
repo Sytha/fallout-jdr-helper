@@ -15,6 +15,7 @@
       "RANDOMBOOKS": "Livres Aléatoires",
       "RANDOMLOOT": "Loots Aléatoires",
       "AUTOLOOT": "Loot Automatique",
+      "AUTOJUNK": "Bric-à-brac automatique",
       "ANDROIDVERSION": "Version Android",
       "DISEASES": "Maladies",
       "MERCHANT": "Marchand Automatique",
@@ -69,6 +70,39 @@
     "MAXRARITY": "Rareté max",
     "GENERATE": "Générer Loot",
     "RECONFIGURE": "Reconfigurer"
+  },
+  "AUTOJUNK": {
+    "HELP": "Choisissez le nombre de bric-à-brac à transformer, indiquer l'intelligence, la compétence en réparation et le niveau de la capacité \"Recycleur\". Choisissez une priorité en cas de succès sur les D20 et une conséquence en cas de difficulté.",
+    "INTELLIGENCE": "Intelligence",
+    "REPAIRSKILL": "Réparation",
+    "REPAIRSKILLTAG" : "Atout",
+    "PRIORITY": "Priorité (si succès)",
+    "RECYCLINGSKILL" : "Capacité \"Recycleur\"",
+    "DIFFICULTYCONSEQUENCE": "Conséquence (si difficulté(s))",
+    "JUNKQUANTITY": "Bric à brac",
+    "PRIORITIES": {
+      "TIME" : "Prioriser le temps : Diviser le temps par 2 pour chaque succès",
+      "QUALITY" : "Prioriser la qualité : Ajouter 1 D6 pour chaque succès",
+      "BOTHBUTTIME" : "Alterner entre les 2 en priorisant le temps",
+      "BOTHBUTQUALITY" : "Alterner entre les 2 en priorisant la qualité"
+    },
+    "DIFFICULTYCONSEQUENCES":{
+      "TIME" : "Impacter le temps : Double le temps pour chaque difficulté",
+      "QUALITY" : "Impacter la qualité : détruit un des résultats",
+      "BOTHBUTTIME" : "Alterner entre les 2 en impactant le temps en premier",
+      "BOTHBUTQUALITY" : "Alterner entre les 2 en impactant la qualité en premier"
+    },
+    "RESULT":{
+      "GENERATEDCOMMON" : "Matériaux Fréquents",
+      "GENERATEDUNCOMMON" : "Matériaux Non Fréquents",
+      "GENERATEDRARE" : "Matériaux Rares",
+      "TOTALTIMEELAPSED" : "Temps passé total",
+      "TOTALDIFFICULTIES" : "Nombre de difficultés",
+      "TOTALSUCCESS" : "Nombre de succès",
+      "TOTALCRITICAL" : "Nombre de succès critiques",
+      "TOTALLOSTITEM" : "Nombre d'objets perdus",
+      "TIMEBALANCE" : "Balance temps gagné/perdu"
+    }
   },
   "RANDOMBOOKS": {
     "HELP": "Lancer les dès pour calculer automatiquement le livre que vous trouvez",

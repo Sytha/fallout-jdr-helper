@@ -36,6 +36,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/auto-loot/auto-loot.module').then(m => m.AutoLootPageModule)
   },
   {
+    path: 'auto-junk',
+    loadChildren: () => import('./pages/auto-junk/auto-junk.module').then(m => m.AutoJunkPageModule)
+  },
+  {
     path: 'diseases',
     loadChildren: () => import('./pages/diseases/diseases.module').then(m => m.DiseasesModule)
   },
