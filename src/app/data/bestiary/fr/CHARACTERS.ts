@@ -384,6 +384,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "32",
         "initiative": "19",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "110 kg",
         "luckPoints": "—",
         "ballisticR": "3 (bras,jambes,buste)",
@@ -446,6 +447,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "14",
         "initiative": "12",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "55 kg",
         "luckPoints": "—",
         "ballisticR": "2 (toutes)",
@@ -498,7 +500,6 @@ export const CHARACTERS: MobDetails[] = [
         "keywords": "Humain",
         "type": "Personnage Notable",
         "xp": "120",
-        "description": "Les paladins sont les troupes d’élite de la Confrérie de l’Acier. Équipés d’armures assistées et des meilleures armes dont dispose l’organisation, ces vétérans sont souvent des guerriers reconnus. Atteindre le rang de paladin exige une dévotion totale à la Confrérie ainsi que d’impressionnantes références : c’est un échelon que beaucoup rêvent d’atteindre.",
         "strength": "7 (11)",
         "perception": "9",
         "endurance": "8",
@@ -506,22 +507,26 @@ export const CHARACTERS: MobDetails[] = [
         "intelligence": "6",
         "agility": "6",
         "luck": "4",
-        "health": "20 (10 tête,",
-        "initiative": "10 jambes,",
-        "defense": "21 buste)",
-        "meleeBonus": "PTS $CD$E CHANCE",
-        "carryWeight": "BONUS CÀC",
-        "luckPoints": "+3 D",
-        "ballisticR": "RD RAD.",
-        "energyR": "RD POIS.",
-        "poisonR": "6 (tête);8 (buste);5 (bras,jambes)",
-        "radiationR": "7 (tête);9 (buste);6 (bras,jambes)",
+        "health": "20 (10 tête,10 jambes,21 buste)",
+        "initiative": "17",
+        "defense": "1",
+        "meleeBonus": "+3 $CD$",
+        "carryWeight": "180 kg",
+        "luckPoints": "2",
+        "ballisticR": "7 (tête);9 (buste);6 (bras,jambes)",
+        "energyR": "6 (tête);8 (buste);5 (bras,jambes)",
+        "poisonR": "0",
+        "radiationR": "7 (tête,bras,jambes);9 (buste)",
         "source": "$OFF$",
         "typeDef":BestiaryType.CHARACTER,
         "attacks": [
             {
-                "title": "jambes); 9 (buste) 0 $CD$ ATTAQUES  ATTAQUE À MAINS NUES",
-                "description": "FOR + Mains nues (SR 14), 5 $CD$ de dégâts balistiques  FUSIL LASER À CANON LONG AMÉLIORÉ"
+                "title": "ATTAQUE À MAINS NUES",
+                "description": "FOR + Mains nues (SR 14), 5 $CD$ de dégâts balistiques"
+            },
+            {
+                "title": "FUSIL LASER À CANON LONG AMÉLIORÉ",
+                "description": "PER + Armes à énergie (SR 14), 6 $CD$ de dégâts énergétiques Perforants 1, portée M, cadence de tir 2, Deux mains"
             }
         ],
         "effects": [
@@ -541,7 +546,7 @@ export const CHARACTERS: MobDetails[] = [
         "inventory": [
             {
                 "title": "Fouille",
-                "description": "Châssis d’armure assistée, armure assistée T-60 com- plète, fusil laser à canon long amélioré, holoplaques de la Confrérie de l’Acier."
+                "description": "Châssis d’armure assistée, armure assistée T-60 complète, fusil laser à canon long amélioré, holoplaques de la Confrérie de l’Acier."
             }
         ],
         "skills": [
@@ -553,7 +558,8 @@ export const CHARACTERS: MobDetails[] = [
             "Réparations 2",
             "Discours 3",
             "Science* 3"
-        ]
+        ],
+        "description": "Les paladins sont les troupes d’élite de la Confrérie de l’Acier. Équipés d’armures assistées et des meilleures armes dont dispose l’organisation, ces vétérans sont souvent des guerriers reconnus. Atteindre le rang de paladin exige une dévotion totale à la Confrérie ainsi que d’impressionnantes références : c’est un échelon que beaucoup rêvent d’atteindre."
     },
     {
         "name": "Scribe",
@@ -572,6 +578,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "9",
         "initiative": "11",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "100 kg",
         "luckPoints": "–",
         "ballisticR": "1 (bras,jambes,buste)",
@@ -634,6 +641,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "11",
         "initiative": "12",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "100 kg",
         "luckPoints": "–",
         "ballisticR": "2 (bras,jambes,buste)",
@@ -696,6 +704,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "8",
         "initiative": "11",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "55 kg",
         "luckPoints": "–",
         "ballisticR": "1 (bras,buste)",
@@ -902,6 +911,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "13",
         "initiative": "13",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "105 kg",
         "luckPoints": "–",
         "ballisticR": "3 (bras,buste) ;2 (jambes)",
@@ -1037,6 +1047,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "13",
         "initiative": "12",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "100 kg",
         "luckPoints": "–",
         "ballisticR": "1 (bras,jambes,buste)",
@@ -1098,6 +1109,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "12",
         "initiative": "13",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "100 kg",
         "luckPoints": "–",
         "ballisticR": "1 (bras) ;2 (jambes,buste)",
@@ -1159,6 +1171,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "14",
         "initiative": "10",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "100 kg",
         "luckPoints": "–",
         "ballisticR": "1 (bras,jambes,buste)",
@@ -1216,6 +1229,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "14",
         "initiative": "10",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "100 kg",
         "luckPoints": "–",
         "ballisticR": "1 (bras,jambes,buste)",
@@ -1283,6 +1297,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "8",
         "initiative": "11",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "100 kg",
         "luckPoints": "–",
         "ballisticR": "1 (bras,jambes,buste)",
@@ -1345,6 +1360,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "15",
         "initiative": "13",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "100 kg",
         "luckPoints": "3",
         "ballisticR": "1 (bras,jambes,buste)",
@@ -1419,6 +1435,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "12",
         "initiative": "12",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "105 kg",
         "luckPoints": "–",
         "ballisticR": "2 (bras,jambes,buste)",
@@ -1487,6 +1504,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "12",
         "initiative": "12",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "105 kg",
         "luckPoints": "–",
         "ballisticR": "1 (bras,jambes,buste)",
@@ -1546,6 +1564,7 @@ export const CHARACTERS: MobDetails[] = [
         "health": "12",
         "initiative": "12",
         "defense": "1",
+        "meleeBonus": "+0 $CD$",
         "carryWeight": "95 kg",
         "luckPoints": "–",
         "ballisticR": "0",

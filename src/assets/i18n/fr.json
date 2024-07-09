@@ -180,6 +180,9 @@
       "EXT": "Etendu",
       "EXTENDED-NOTE": "Issu du bestiaire étendu (non officiel) par ",
       "EXTENDED-NOTE-FULL": "Issu du bestiaire étendu (non officiel) par Ludi Tery"
-    }
+    },
+    "MELEEBONUS": "Bonus CaC",
+    "CARRYWEIGHT": "Charge Maximale",
+    "LUCKPOINT": "Points de chance"
   }
 }

@@ -41,6 +41,24 @@
         <ion-col>{{mob.range}}</ion-col>
         <ion-col>{{mob.other}}</ion-col>
       </ion-row>
+        <ion-row *ngIf="mob.typeDef === CHARACTER">
+          <ion-col class="header">{{'BESTIARY.STRENGTH' |translate}}</ion-col>
+          <ion-col class="header">{{'BESTIARY.PERCEPTION' |translate}}</ion-col>
+          <ion-col class="header">{{'BESTIARY.ENDURANCE' |translate}}</ion-col>
+          <ion-col class="header">{{'BESTIARY.CHARISMA' |translate}}</ion-col>
+          <ion-col class="header">{{'BESTIARY.INTELLIGENCE' |translate}}</ion-col>
+          <ion-col class="header">{{'BESTIARY.AGILITY' |translate}}</ion-col>
+          <ion-col class="header">{{'BESTIARY.LUCK' |translate}}</ion-col>
+        </ion-row>
+        <ion-row *ngIf="mob.typeDef === CHARACTER">
+          <ion-col>{{mob.strength}}</ion-col>
+          <ion-col>{{mob.perception}}</ion-col>
+          <ion-col>{{mob.endurance}}</ion-col>
+          <ion-col>{{mob.charisma}}</ion-col>
+          <ion-col>{{mob.intelligence}}</ion-col>
+          <ion-col>{{mob.agility}}</ion-col>
+          <ion-col>{{mob.luck}}</ion-col>
+        </ion-row>
       <ion-row>
         <ion-col class="header">{{'BESTIARY.HP-short' |translate}}</ion-col>
         <ion-col class="header">{{'BESTIARY.INITIATIVE' |translate}}</ion-col>
@@ -50,6 +68,24 @@
         <ion-col>{{mob.health}}</ion-col>
         <ion-col>{{mob.initiative}}</ion-col>
         <ion-col>{{mob.defense}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6" class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.SKILLS' |translate}}</ion-col>
+        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.CARRYWEIGHT' |translate}}</ion-col>
+        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.MELEEBONUS' |translate}}</ion-col>
+        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.LUCKPOINT' |translate}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="mob.typeDef === CHARACTER">
+        <ion-col size="6" class="details-list ion-justify-content-start">
+          <ul>
+            <li *ngFor="let skill of mob.skills">
+              <strong>{{skill}}</strong>
+            </li>
+          </ul>
+        </ion-col>
+        <ion-col>{{mob.carryWeight}}</ion-col>
+        <ion-col><app-rich-text-display [propertyText]="mob.meleeBonus"></app-rich-text-display></ion-col>
+        <ion-col>{{mob.luckPoints}}</ion-col>
       </ion-row>
       <ion-row>
         <ion-col class="header">{{'BESTIARY.BALLISTICRES' |translate}}</ion-col>
