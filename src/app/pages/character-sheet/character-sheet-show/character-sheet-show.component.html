@@ -1,0 +1,132 @@
+<ion-app>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="back()">{{"APP.BACK" | translate}}</ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-capitalize">{{mob.name}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding" *ngIf="mob !== null">
+    <ion-item>
+      <ion-text>
+        <span class="details"> Niveau {{mob.level}}, {{mob.keywords}}, {{mob.type}} ({{mob.currentXp}}/{{mob.xp}} PE)</span>
+      </ion-text>
+    </ion-item>
+    <ion-grid>
+      <ion-row *ngIf="mob.typeDef === CHARACTER">
+        <ion-col class="header">{{'BESTIARY.STRENGTH' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.PERCEPTION' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.ENDURANCE' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.CHARISMA' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.INTELLIGENCE' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.AGILITY' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.LUCK' |translate}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="mob.typeDef === CHARACTER">
+        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.strength" type="number" min="4" max="12"></ion-input></ion-col>
+        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.perception" type="number" min="4" max="12"></ion-input></ion-col>
+        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.endurance" type="number" min="4" max="12"></ion-input></ion-col>
+        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.charisma" type="number" min="4" max="12"></ion-input></ion-col>
+        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.intelligence" type="number" min="4" max="12"></ion-input></ion-col>
+        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.agility" type="number" min="4" max="12"></ion-input></ion-col>
+        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.luck" type="number" min="4" max="12"></ion-input></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="header">{{'BESTIARY.HP-short' |translate}}</ion-col>
+        <ion-col class="header">XP</ion-col>
+        <ion-col class="header">{{'BESTIARY.INITIATIVE' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.DEFENSE' |translate}}</ion-col>
+        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.CARRYWEIGHT' |translate}}</ion-col>
+        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.MELEEBONUS' |translate}}</ion-col>
+        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.LUCKPOINT' |translate}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>{{mob.health}} / {{mob.maxHealth}}</ion-col>
+        <ion-col>{{mob.xp}}/300</ion-col>
+        <ion-col>{{mob.initiative}}</ion-col>
+        <ion-col>{{mob.defense}}</ion-col>
+        <ion-col>{{mob.carryWeight}} / {{mob.maxCarryWeight}}</ion-col>
+        <ion-col><app-rich-text-display [propertyText]="mob.meleeBonus"></app-rich-text-display></ion-col>
+        <ion-col>{{mob.luckPoints}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.SKILLS' |translate}}</ion-col>
+      </ion-row>
+      <ion-row class="ion-justify-content-start" *ngIf="mob.typeDef === CHARACTER">
+        <ion-col size="4" *ngFor="let skill of mob.skills" class="ion-justify-content-start">
+          {{skill}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="header">{{'BESTIARY.BALLISTICRES' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.ENERGYRES' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.RADIATIONRES' |translate}}</ion-col>
+        <ion-col class="header">{{'BESTIARY.POISONRES' |translate}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>{{mob.ballisticR}}.</ion-col>
+        <ion-col>{{mob.energyR}}</ion-col>
+        <ion-col>{{mob.radiationR}}</ion-col>
+        <ion-col>{{mob.poisonR}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="header">{{'BESTIARY.ATTACKS' |translate}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="details-list ion-justify-content-start">
+          <ul>
+            <li *ngFor="let attack of mob.attacks">
+              <strong>{{attack.title}}</strong> :
+              <app-rich-text-display [propertyText]="attack.description"></app-rich-text-display>
+            </li>
+          </ul>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="header">{{'BESTIARY.EFFECTS' |translate}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="details-list ion-justify-content-start">
+          <ul>
+            <li *ngFor="let effect of mob.effects">
+              <strong>{{effect.title}}</strong> :
+              <app-rich-text-display [propertyText]="effect.description"></app-rich-text-display>
+            </li>
+          </ul>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="header">{{'BESTIARY.INVENTORY' |translate}}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="details-list ion-justify-content-start">
+          <ul>
+            <li *ngFor="let inventory of mob.inventory">
+              <strong>
+                <app-rich-text-display [propertyText]="inventory.title"></app-rich-text-display>
+              </strong> :
+              <app-rich-text-display [propertyText]="inventory.description"></app-rich-text-display>
+            </li>
+          </ul>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-app>
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="toggle()">
+  <ion-fab-button >
+    <ion-icon name="pencil-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="start">
+    <ion-fab-button color="danger" (click)="upgradeCreature()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button color="success" (click)="upgradeCreature()">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>

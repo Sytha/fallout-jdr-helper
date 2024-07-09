@@ -12,6 +12,8 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {FormsModule} from "@angular/forms";
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { Drivers } from '@ionic/storage';
 
 // AoT requires an exported function for factories
 export function createTranslateLoader(http: HttpClient) {
@@ -40,7 +42,8 @@ export function createTranslateLoader(http: HttpClient) {
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    IonicStorageModule.forRoot()
   ],
   providers: [
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}

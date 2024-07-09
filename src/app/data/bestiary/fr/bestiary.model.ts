@@ -1,4 +1,7 @@
 export interface MobDetails {
+currentXp: any;
+maxHealth: any;
+maxCarryWeight: any;
   typeDef: BestiaryType;
   name: string;
   level: string;

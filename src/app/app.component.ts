@@ -69,6 +69,7 @@ export class AppComponent implements OnInit {
         this.buildMenu('PERKS', 'perks', 'bulb'),
         this.buildMenu('MERCHANT', 'merchant', 'cash'),
         this.buildMenu('DISEASES', 'diseases', 'medical'),
+        this.buildMenu('CHARACTERSHEET', 'character-sheet', 'man'),
       ]
     });
     this.sections.push({

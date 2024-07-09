@@ -52,6 +52,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/bestiary/bestiary.module').then(m => m.BestiaryModule)
   },
   {
+    path: 'character-sheet',
+    loadChildren: () => import('./pages/character-sheet/character-sheet.module').then(m => m.CharacterSheetModule)
+  },
+  {
     path: 'perks',
     loadChildren: () => import('./pages/perks/perks.module').then(m => m.PerksModule)
   }

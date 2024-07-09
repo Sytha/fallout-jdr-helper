@@ -1,0 +1,43 @@
+ion-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px var(--dv-background-accent-dark);
+
+  ul > li {
+    list-style-type: none
+  }
+}
+
+ion-col.detail-list {
+  text-align: left;
+}
+
+ion-col.header {
+  background-color: var(--dv-background-accent);
+  color: #fff;
+}
+
+span.details {
+  font-weight: bold;
+  text-align: center;
+}
+
+ion-img.character-sheet {
+  width: 250px;
+  height: auto;
+}
+
+ion-input.editable {
+  --background: lightgray;
+  --color: #000;
+  --opacity: 1;
+  opacity: 1;
+}
+
+ion-input.editable.input-disabled {
+  --background: none;
+  --color: #000;
+  --opacity: 1;
+  opacity: 1;
+}
