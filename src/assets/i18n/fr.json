@@ -19,7 +19,8 @@
       "DISEASES": "Maladies",
       "MERCHANT": "Marchand Automatique",
       "BESTIARYUPGRADE": "Amélioration ennemis",
-      "BESTIARYLIST": "Bestiaire complet"
+      "BESTIARYLIST": "Bestiaire complet",
+      "CHARACTERSHEET" : "Fiches de perso"
     }
   },
   "HOME": {
