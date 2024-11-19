@@ -1,75 +1,107 @@
-<ion-app>
+<ion-app *ngIf="stats !== undefined">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-button (click)="back()">{{"APP.BACK" | translate}}</ion-button>
       </ion-buttons>
-      <ion-title class="ion-text-capitalize">{{mob.name}}</ion-title>
+      <ion-title class="ion-text-capitalize"><ion-input class="editable" [disabled]="!editionMode" [(ngModel)]="stats.name"></ion-input></ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content class="ion-padding" *ngIf="mob !== null">
+  <ion-content class="ion-padding">
     <ion-item>
       <ion-text>
-        <span class="details"> Niveau {{mob.level}}, {{mob.keywords}}, {{mob.type}} ({{mob.currentXp}}/{{mob.xp}} PE)</span>
+        <span class="details"> Niveau {{stats.level}}</span>
       </ion-text>
     </ion-item>
+
+
     <ion-grid>
-      <ion-row *ngIf="mob.typeDef === CHARACTER">
-        <ion-col class="header">{{'BESTIARY.STRENGTH' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.PERCEPTION' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.ENDURANCE' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.CHARISMA' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.INTELLIGENCE' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.AGILITY' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.LUCK' |translate}}</ion-col>
-      </ion-row>
-      <ion-row *ngIf="mob.typeDef === CHARACTER">
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.strength" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.perception" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.endurance" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.charisma" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.intelligence" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.agility" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.luck" type="number" min="4" max="12"></ion-input></ion-col>
-      </ion-row>
       <ion-row>
-        <ion-col class="header">{{'BESTIARY.HP-short' |translate}}</ion-col>
-        <ion-col class="header">XP</ion-col>
-        <ion-col class="header">{{'BESTIARY.INITIATIVE' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.DEFENSE' |translate}}</ion-col>
-        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.CARRYWEIGHT' |translate}}</ion-col>
-        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.MELEEBONUS' |translate}}</ion-col>
-        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.LUCKPOINT' |translate}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>{{mob.health}} / {{mob.maxHealth}}</ion-col>
-        <ion-col>{{mob.xp}}/300</ion-col>
-        <ion-col>{{mob.initiative}}</ion-col>
-        <ion-col>{{mob.defense}}</ion-col>
-        <ion-col>{{mob.carryWeight}} / {{mob.maxCarryWeight}}</ion-col>
-        <ion-col><app-rich-text-display [propertyText]="mob.meleeBonus"></app-rich-text-display></ion-col>
-        <ion-col>{{mob.luckPoints}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12" class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.SKILLS' |translate}}</ion-col>
-      </ion-row>
-      <ion-row class="ion-justify-content-start" *ngIf="mob.typeDef === CHARACTER">
-        <ion-col size="4" *ngFor="let skill of mob.skills" class="ion-justify-content-start">
-          {{skill}}
+        <ion-col class="structural-col">
+          <ion-row>
+            <ion-col class="header">S</ion-col>
+            <ion-col class="header">P</ion-col>
+            <ion-col class="header">E</ion-col>
+            <ion-col class="header">C</ion-col>
+            <ion-col class="header">I</ion-col>
+            <ion-col class="header">A</ion-col>
+            <ion-col class="header">L</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.strength"
+                (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4" max="10"></ion-input></ion-col>
+            <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.perception"
+                (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4" max="12"></ion-input></ion-col>
+            <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.endurance"
+                (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4" max="10"></ion-input></ion-col>
+            <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.charisma"
+                (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4" max="10"></ion-input></ion-col>
+            <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.intelligence"
+                (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4" max="10"></ion-input></ion-col>
+            <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.agility"
+                (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4" max="10"></ion-input></ion-col>
+            <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.luck"
+                (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4" max="10"></ion-input></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="header">{{'BESTIARY.HP-short' |translate}}</ion-col>
+            <ion-col class="header">XP</ion-col>
+            <ion-col class="header">{{'BESTIARY.INITIATIVE' |translate}}</ion-col>
+            <ion-col class="header">{{'BESTIARY.DEFENSE' |translate}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>{{stats.health}} / {{this.maxHealth}}</ion-col>
+            <ion-col>{{stats.xp}}/{{this.levelCap}}</ion-col>
+            <ion-col>{{this.initiative}}</ion-col>
+            <ion-col>{{this.defense}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="header">{{'BESTIARY.CARRYWEIGHT' |translate}}</ion-col>
+            <ion-col class="header">{{'BESTIARY.MELEEBONUS' |translate}}</ion-col>
+            <ion-col class="header">{{'BESTIARY.LUCKPOINT' |translate}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>{{stats.carryWeight}} / {{this.maxCarryWeight}}</ion-col>
+            <ion-col><app-rich-text-display [propertyText]="this.bonusCac"></app-rich-text-display></ion-col>
+            <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.luckPoints"
+              [type]="editionMode ? 'number' : 'text'" min="0" [max]="stats.luck"></ion-input></ion-col>
+          </ion-row>
+        </ion-col>
+        <ion-col class="structural-col resistances">
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance internalSize="12" (onEdit)="test($event)" [res]="resistanceTete" [editable]="false"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance internalSize="12" [res]="resistanceBG" [editable]="false"></app-character-sheet-resistance>
+            <app-character-sheet-resistance internalSize="12" [res]="resistanceBD" [editable]="false"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance internalSize="12" [res]="resistanceTorse" [editable]="false"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance internalSize="12" [res]="resistanceJG" [editable]="false"></app-character-sheet-resistance>
+            <app-character-sheet-resistance internalSize="12" [res]="resistanceJD" [editable]="false"></app-character-sheet-resistance>
+          </ion-row>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="header">{{'BESTIARY.BALLISTICRES' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.ENERGYRES' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.RADIATIONRES' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.POISONRES' |translate}}</ion-col>
+        <ion-col size="12" class="header">{{'BESTIARY.SKILLS' |translate}}</ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col>{{mob.ballisticR}}.</ion-col>
-        <ion-col>{{mob.energyR}}</ion-col>
-        <ion-col>{{mob.radiationR}}</ion-col>
-        <ion-col>{{mob.poisonR}}</ion-col>
+      <ion-row class="ion-justify-content-start">
+        <ion-col size="4" *ngFor="let skill of stats.skills | keyvalue" class="ion-justify-content-start">
+          {{skill.value.tag ? '*' : ''}} {{skill.key}}
+          <button *ngIf="skill.value.rank > 0 && editionMode" class="button-minus skill-button" (click)="decreaseSkill(skill.key)">-</button>
+          <button *ngIf="skill.value.rank == 0 && editionMode" class="button-trash skill-button" (click)="deleteSkill(skill.key)"><ion-icon name="trash-outline"></ion-icon></button>
+          {{skill.value.rank}}
+          <button *ngIf="editionMode" class="button-plus skill-button"  (click)="increaseSkill(skill.key)">+</button>
+          <ion-checkbox *ngIf="editionMode" class="tag-checkbox" labelPlacement="stacked" (ionChange)="tagSkill($event, skill.key)">{{'BESTIARY.TAG' | translate}}</ion-checkbox>
+        </ion-col>
+        <ion-col *ngIf="editionMode" size="4" class="ion-justify-content-start">
+          <ion-select (ionChange)="addSkill()" [(ngModel)]="selectedSkillType" [placeholder] ="'ADD SKILL' |translate">
+            <ion-select-option *ngFor="let nus of notUsedSkills" [value]="nus">{{nus}}</ion-select-option>
+          </ion-select>
+        </ion-col>
       </ion-row>
       <ion-row>
         <ion-col class="header">{{'BESTIARY.ATTACKS' |translate}}</ion-col>
@@ -77,7 +109,7 @@
       <ion-row>
         <ion-col class="details-list ion-justify-content-start">
           <ul>
-            <li *ngFor="let attack of mob.attacks">
+            <li *ngFor="let attack of stats.attacks">
               <strong>{{attack.title}}</strong> :
               <app-rich-text-display [propertyText]="attack.description"></app-rich-text-display>
             </li>
@@ -90,7 +122,7 @@
       <ion-row>
         <ion-col class="details-list ion-justify-content-start">
           <ul>
-            <li *ngFor="let effect of mob.effects">
+            <li *ngFor="let effect of stats.effects">
               <strong>{{effect.title}}</strong> :
               <app-rich-text-display [propertyText]="effect.description"></app-rich-text-display>
             </li>
@@ -103,7 +135,7 @@
       <ion-row>
         <ion-col class="details-list ion-justify-content-start">
           <ul>
-            <li *ngFor="let inventory of mob.inventory">
+            <li *ngFor="let inventory of stats.inventory">
               <strong>
                 <app-rich-text-display [propertyText]="inventory.title"></app-rich-text-display>
               </strong> :
@@ -117,16 +149,65 @@
 </ion-app>
 
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="toggle()">
-  <ion-fab-button >
-    <ion-icon name="pencil-outline"></ion-icon>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" activated="true">
+  <ion-fab-button>
+    <ion-icon name="apps-outline"></ion-icon>
   </ion-fab-button>
   <ion-fab-list side="start">
-    <ion-fab-button color="danger" (click)="upgradeCreature()">
-      <ion-icon name="close-outline"></ion-icon>
+    <ion-fab-button (click)="showSkillsModal()">
+      <ion-icon name="book-outline"></ion-icon>
     </ion-fab-button>
-    <ion-fab-button color="success" (click)="upgradeCreature()">
-      <ion-icon name="checkmark-outline"></ion-icon>
+    <ion-fab-button (click)="openResistanceModal()">
+      <ion-icon name="shield-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="editionMode = true">
+      <ion-icon name="pencil-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab-list>
 </ion-fab>
+
+<ion-fab vertical="bottom" horizontal="start" slot="end" *ngIf="editionMode === true">
+  <ion-row>
+    <ion-fab-button (click)="editionMode=false;revertStats()" color="danger">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="editionMode=false;saveStats()" color="success">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-row>
+</ion-fab>
+
+<ion-modal [isOpen]="resistanceModalOpen" [initialBreakpoint]="0.5" [breakpoints]="[0,0.5]" (didDismiss)="resistanceModalOpen = false; isOpen = false">
+  <ng-template>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="structural-col resistances">
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance (onEdit)="test($event)" [res]="resistanceTete" editable="true"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance [res]="resistanceBG" editable="true"></app-character-sheet-resistance>
+            <app-character-sheet-resistance [res]="resistanceBD" editable="true"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance [res]="resistanceTorse" editable="true"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance [res]="resistanceJG" editable="true"></app-character-sheet-resistance>
+            <app-character-sheet-resistance [res]="resistanceJD" editable="true"></app-character-sheet-resistance>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-fab vertical="top" horizontal="" slot="end" activated="true">
+      <ion-row>
+        <ion-fab-button (click)="resistanceModalOpen = false" color="danger">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button color="success">
+          <ion-icon name="checkmark-outline"  (click)="resistanceModalOpen = false"></ion-icon>
+        </ion-fab-button>
+      </ion-row>
+    </ion-fab>
+  </ng-template>
+</ion-modal>

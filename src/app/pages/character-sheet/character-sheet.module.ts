@@ -6,10 +6,11 @@ import {SharedModule} from "../../shared/shared.module";
 import {CharacterSheetRoutingModule} from "./character-sheet-routing.module";
 import {CharacterSheetListComponent} from "./character-sheet-list/character-sheet-list.component";
 import {CharacterSheetShowComponent} from "./character-sheet-show/character-sheet-show.component";
+import { CharacterSheetResistance } from './character-sheet-show/character-sheet-resistance/character-sheet-resistance.component';
 
 
 @NgModule({
-  declarations: [CharacterSheetListComponent, CharacterSheetShowComponent],
+  declarations: [CharacterSheetListComponent, CharacterSheetShowComponent, CharacterSheetResistance],
   imports: [
     CommonModule,
     FormsModule,
