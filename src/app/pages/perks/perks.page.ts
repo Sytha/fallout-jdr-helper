@@ -18,13 +18,13 @@ export class PerksPage implements OnInit {
 
   result: PerkDetail[];
   filteredResult: PerkDetail[];
-  s:number=4;
-  p:number=4;
-  e:number=4;
-  c:number=4;
-  i:number=4;
-  a:number=4;
-  l:number=4;
+  strength:number=4;
+  perception:number=4;
+  endurance:number=4;
+  charisma:number=4;
+  intelligence:number=4;
+  agility:number=4;
+  luck:number=4;
   level:number=1;
   isRobot:boolean=false;
   searchQuery:string = "";
@@ -34,7 +34,7 @@ export class PerksPage implements OnInit {
   }
 
   ngOnInit() {
-    this.result = this.perksService.findByCharacterStats({"s":10,"p":10,"e":10,"c":10,"i":10,"a":10,"l":10,"level":100,"isRobot":false,"ownedPerks":new Map()})
+    this.result = this.perksService.findByCharacterStats({"strength":10,"perception":10,"endurance":10,"charisma":10,"intelligence":10,"agility":10,"luck":10,"level":100,"isRobot":false,"perks":new Map()})
     this.filteredResult = [];
     this.result.forEach(perk => this.filteredResult.push(Object.assign({}, perk)));
   }
@@ -51,7 +51,7 @@ export class PerksPage implements OnInit {
 
   search() {
     this.searchQuery = "";
-    this.result = this.perksService.findByCharacterStats({"s":this.s,"p":this.p,"e":this.e,"c":this.c,"i":this.i,"a":this.a,"l":this.l,"level":this.level,"isRobot":this.isRobot,"ownedPerks":new Map()})
+    this.result = this.perksService.findByCharacterStats({"strength":this.strength,"perception":this.perception,"endurance":this.endurance,"charisma":this.charisma,"intelligence":this.intelligence,"agility":this.agility,"luck":this.luck,"level":this.level,"isRobot":this.isRobot,"perks":new Map()})
     this.filteredResult = [];
     this.result.forEach(perk => this.filteredResult.push(Object.assign({}, perk)));
   }

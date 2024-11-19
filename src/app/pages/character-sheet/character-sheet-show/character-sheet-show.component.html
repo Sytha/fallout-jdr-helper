@@ -1,115 +1,388 @@
-<ion-app>
+<ion-app *ngIf="stats !== undefined" xmlns="http://www.w3.org/1999/html">
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
-        <ion-button (click)="back()">{{"APP.BACK" | translate}}</ion-button>
+        <ion-button (click)="back()">{{ "APP.BACK" | translate }}</ion-button>
       </ion-buttons>
-      <ion-title class="ion-text-capitalize">{{mob.name}}</ion-title>
+      <ion-title class="ion-text-capitalize">
+        <ion-input class="editable" [disabled]="!editionMode" [(ngModel)]="stats.name"></ion-input>
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content class="ion-padding" *ngIf="mob !== null">
+  <ion-content class="ion-padding">
     <ion-item>
       <ion-text>
-        <span class="details"> Niveau {{mob.level}}, {{mob.keywords}}, {{mob.type}} ({{mob.currentXp}}/{{mob.xp}} PE)</span>
+        <span class="details"> Niveau {{ stats.level }}</span>
       </ion-text>
     </ion-item>
+
+
     <ion-grid>
-      <ion-row *ngIf="mob.typeDef === CHARACTER">
-        <ion-col class="header">{{'BESTIARY.STRENGTH' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.PERCEPTION' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.ENDURANCE' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.CHARISMA' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.INTELLIGENCE' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.AGILITY' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.LUCK' |translate}}</ion-col>
-      </ion-row>
-      <ion-row *ngIf="mob.typeDef === CHARACTER">
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.strength" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.perception" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.endurance" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.charisma" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.intelligence" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.agility" type="number" min="4" max="12"></ion-input></ion-col>
-        <ion-col><ion-input class="ion-text-center editable" [disabled]="!editionMode" [value]="mob.luck" type="number" min="4" max="12"></ion-input></ion-col>
-      </ion-row>
       <ion-row>
-        <ion-col class="header">{{'BESTIARY.HP-short' |translate}}</ion-col>
-        <ion-col class="header">XP</ion-col>
-        <ion-col class="header">{{'BESTIARY.INITIATIVE' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.DEFENSE' |translate}}</ion-col>
-        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.CARRYWEIGHT' |translate}}</ion-col>
-        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.MELEEBONUS' |translate}}</ion-col>
-        <ion-col class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.LUCKPOINT' |translate}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>{{mob.health}} / {{mob.maxHealth}}</ion-col>
-        <ion-col>{{mob.xp}}/300</ion-col>
-        <ion-col>{{mob.initiative}}</ion-col>
-        <ion-col>{{mob.defense}}</ion-col>
-        <ion-col>{{mob.carryWeight}} / {{mob.maxCarryWeight}}</ion-col>
-        <ion-col><app-rich-text-display [propertyText]="mob.meleeBonus"></app-rich-text-display></ion-col>
-        <ion-col>{{mob.luckPoints}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col size="12" class="header" *ngIf="mob.typeDef === CHARACTER">{{'BESTIARY.SKILLS' |translate}}</ion-col>
-      </ion-row>
-      <ion-row class="ion-justify-content-start" *ngIf="mob.typeDef === CHARACTER">
-        <ion-col size="4" *ngFor="let skill of mob.skills" class="ion-justify-content-start">
-          {{skill}}
+        <ion-col class="structural-col stats">
+          <ion-grid>
+            <ion-row>
+              <ion-col class="header">S</ion-col>
+              <ion-col class="header">P</ion-col>
+              <ion-col class="header">E</ion-col>
+              <ion-col class="header">C</ion-col>
+              <ion-col class="header">I</ion-col>
+              <ion-col class="header">A</ion-col>
+              <ion-col class="header">L</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.strength"
+                           (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4"
+                           max="12"></ion-input>
+              </ion-col>
+              <ion-col>
+                <ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.perception"
+                           (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4"
+                           max="10"></ion-input>
+              </ion-col>
+              <ion-col>
+                <ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.endurance"
+                           (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4"
+                           max="12"></ion-input>
+              </ion-col>
+              <ion-col>
+                <ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.charisma"
+                           (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4"
+                           max="10"></ion-input>
+              </ion-col>
+              <ion-col>
+                <ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.intelligence"
+                           (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4"
+                           max="10"></ion-input>
+              </ion-col>
+              <ion-col>
+                <ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.agility"
+                           (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4"
+                           max="10"></ion-input>
+              </ion-col>
+              <ion-col>
+                <ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.luck"
+                           (input)="calculateDerivativeStats()" [type]="editionMode ? 'number' : 'text'" min="4"
+                           max="10"></ion-input>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="header">{{ 'BESTIARY.HP-short' |translate }}</ion-col>
+              <ion-col class="header">XP</ion-col>
+              <ion-col class="header">{{ 'BESTIARY.INITIATIVE' |translate }}</ion-col>
+              <ion-col class="header">{{ 'BESTIARY.DEFENSE' |translate }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{ stats.health }} / {{ this.maxHealth }}</ion-col>
+              <ion-col>{{ stats.xp }}/{{ this.levelCap }}</ion-col>
+              <ion-col>{{ this.initiative }}</ion-col>
+              <ion-col>{{ this.defense }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="header">{{ 'BESTIARY.CARRYWEIGHT' |translate }}</ion-col>
+              <ion-col class="header">{{ 'BESTIARY.MELEEBONUS' |translate }}</ion-col>
+              <ion-col class="header">{{ 'BESTIARY.LUCKPOINT' |translate }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{ stats.carryWeight }} / {{ this.maxCarryWeight }}</ion-col>
+              <ion-col>
+                <app-rich-text-display [propertyText]="this.bonusCac"></app-rich-text-display>
+              </ion-col>
+              <ion-col>
+                <ion-input class="ion-text-center editable" [disabled]="!editionMode" [(ngModel)]="stats.luckPoints"
+                           [type]="editionMode ? 'number' : 'text'" min="0" [max]="stats.luck"></ion-input>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col class="structural-col resistances">
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance label="Tête" [internalSize]="12" [res]="resistanceTete"
+                                            [editable]="editionMode"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance label="Bras gauche" [internalSize]="12" [res]="resistanceBG"
+                                            [editable]="editionMode"></app-character-sheet-resistance>
+            <app-character-sheet-resistance label="Bras droit" [internalSize]="12" [res]="resistanceBD"
+                                            [editable]="editionMode"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance label="Torse" [internalSize]="12" [res]="resistanceTorse"
+                                            [editable]="editionMode"></app-character-sheet-resistance>
+          </ion-row>
+          <ion-row class="justify-content-center align-items-center">
+            <app-character-sheet-resistance label="Jambe gauche" [internalSize]="12" [res]="resistanceJG"
+                                            [editable]="editionMode"></app-character-sheet-resistance>
+            <app-character-sheet-resistance label="Jambe droite" [internalSize]="12" [res]="resistanceJD"
+                                            [editable]="editionMode"></app-character-sheet-resistance>
+          </ion-row>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="header">{{'BESTIARY.BALLISTICRES' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.ENERGYRES' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.RADIATIONRES' |translate}}</ion-col>
-        <ion-col class="header">{{'BESTIARY.POISONRES' |translate}}</ion-col>
+        <ion-col size="12" class="header">{{ 'BESTIARY.SKILLS' |translate }}</ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col>{{mob.ballisticR}}.</ion-col>
-        <ion-col>{{mob.energyR}}</ion-col>
-        <ion-col>{{mob.radiationR}}</ion-col>
-        <ion-col>{{mob.poisonR}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="header">{{'BESTIARY.ATTACKS' |translate}}</ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="details-list ion-justify-content-start">
-          <ul>
-            <li *ngFor="let attack of mob.attacks">
-              <strong>{{attack.title}}</strong> :
-              <app-rich-text-display [propertyText]="attack.description"></app-rich-text-display>
-            </li>
-          </ul>
+      <ion-row class="ion-justify-content-start">
+        <ion-col *ngFor="let skill of stats.skills | keyvalue" class="ion-justify-content-start">
+          {{ skill.value.tag ? '*' : '' }} {{ "CHARACTERSHEET.SKILLS."+skill.key | translate }}
+          <button *ngIf="skill.value.rank > 0 && editionMode" class="button-minus skill-button"
+                  (click)="decreaseSkill(skill.key)">-
+          </button>
+          <button *ngIf="skill.value.rank == 0 && editionMode" class="button-trash skill-button"
+                  (click)="deleteSkill(skill.key)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </button>
+          {{ skill.value.rank }}
+          <button *ngIf="editionMode" class="button-plus skill-button" (click)="increaseSkill(skill.key)">+</button>
+          <ion-checkbox *ngIf="editionMode" class="tag-checkbox" labelPlacement="stacked"
+                        (ionChange)="tagSkill($event, skill.key)">{{ 'BESTIARY.TAG' | translate }}
+          </ion-checkbox>
+        </ion-col>
+        <ion-col *ngIf="editionMode" size="4" class="ion-justify-content-start">
+          <ion-select (ionChange)="addSkill()" [(ngModel)]="selectedSkillType" [placeholder]="'ADD SKILL' |translate">
+            <ion-select-option *ngFor="let nus of notUsedSkills" [value]="nus">{{ "CHARACTERSHEET.SKILLS."+nus | translate  }}</ion-select-option>
+          </ion-select>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="header">{{'BESTIARY.EFFECTS' |translate}}</ion-col>
+        <ion-col class="header">{{ 'CHARACTERSHEET.ATTACKS.TITLE' |translate }}</ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col class="details-list ion-justify-content-start">
-          <ul>
-            <li *ngFor="let effect of mob.effects">
-              <strong>{{effect.title}}</strong> :
-              <app-rich-text-display [propertyText]="effect.description"></app-rich-text-display>
-            </li>
-          </ul>
+      <ion-row class="attacks">
+        <ion-col *ngFor="let attack of stats.attacks" class="attacks">
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngIf="editionMode">
+                <ion-icon *ngIf="editionMode" (click)="deleteAttack(attack)" name="trash-outline" size="large"
+                          color="danger"></ion-icon>
+                <ion-icon *ngIf="editionMode" (click)="editAttack(attack)" name="pencil-outline" size="large"
+                          color="success"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{ attack.name }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{attack.damage}}
+                <app-rich-text-display [propertyText]="' $CD$'"></app-rich-text-display>
+                {{ attack.damageType.join(' / ') }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <img src="assets/icon/multiTargets.svg" class="img-icon cadence" alt=""/>
+                {{ attack.cadence }}
+              </ion-col>
+              <ion-col class="reach">
+                <div class="reach-icon"><img src="assets/icon/aim.svg" class="img-icon reach" alt=""/></div>
+                <div class="reach-label">{{ ("CHARACTERSHEET.ATTACKS.REACHVALUE."+attack.reach) | translate }}</div>
+              </ion-col>
+              <ion-col>
+                <img src="assets/icon/bullets.svg" class="img-icon ammo" alt=""/>
+                {{ attack.ammo }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{ attack.special.short }}
+              </ion-col>
+              <ion-col>
+                {{ "CHARACTERSHEET.SKILLS."+attack.skill | translate }}
+              </ion-col>
+              <ion-col class="target-number">
+                <div class="target-number-icon"><img src="assets/icon/d20.svg" class="img-icon tn" alt=""/></div>
+                <div class="target-number-label">{{ +stats[attack.special.long.toLowerCase()] + stats.skills.get(attack.skill)?.rank ?? 0 }}{{ stats.skills.get(attack.skill)?.tag ?? false ? "*" : "" }}</div>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="effects">
+                {{ attack.effects.join(" ").replace(Effect.PERFORANT, Effect.PERFORANT + " " + attack.piercingRating) }}
+              </ion-col>
+              <ion-col class="effects">
+                {{ attack.qualities.join(" ") }}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col *ngFor="let attack of stats.attacks" class="attacks">
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngIf="editionMode">
+                <ion-icon *ngIf="editionMode" (click)="deleteAttack(attack)" name="trash-outline" size="large"
+                          color="danger"></ion-icon>
+                <ion-icon *ngIf="editionMode" (click)="editAttack(attack)" name="pencil-outline" size="large"
+                          color="success"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{ attack.name }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <app-rich-text-display [propertyText]="attack.damage +' $CD$'"></app-rich-text-display>
+                {{ attack.damageType.join(' / ') }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{ attack.cadence }}
+              </ion-col>
+              <ion-col>
+                {{ attack.reach }}
+              </ion-col>
+              <ion-col>
+                {{ attack.ammo }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{ attack.special.short }}
+              </ion-col>
+              <ion-col>
+                {{ attack.skill }}
+              </ion-col>
+              <ion-col class="target-number">
+                {{ +stats[attack.special.long.toLowerCase()] + stats.skills.get(attack.skill)?.rank ?? 0 }}{{ stats.skills.get(attack.skill)?.tag ?? false ? "*" : "" }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="effects">
+                {{ attack.effects.join(" ").replace(Effect.PERFORANT, Effect.PERFORANT + " " + attack.piercingRating) }}
+              </ion-col>
+              <ion-col class="effects">
+                {{ attack.qualities.join(" ") }}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col *ngFor="let attack of stats.attacks" class="attacks">
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngIf="editionMode">
+                <ion-icon *ngIf="editionMode" (click)="deleteAttack(attack)" name="trash-outline" size="large"
+                          color="danger"></ion-icon>
+                <ion-icon *ngIf="editionMode" (click)="editAttack(attack)" name="pencil-outline" size="large"
+                          color="success"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{ attack.name }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <app-rich-text-display [propertyText]="attack.damage +' $CD$'"></app-rich-text-display>
+                {{ attack.damageType.join(' / ') }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{ attack.cadence }}
+              </ion-col>
+              <ion-col>
+                {{ attack.reach }}
+              </ion-col>
+              <ion-col>
+                {{ attack.ammo }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{ attack.special.short }}
+              </ion-col>
+              <ion-col>
+                {{ attack.skill }}
+              </ion-col>
+              <ion-col class="target-number">
+                {{ +stats[attack.special.long.toLowerCase()] + stats.skills.get(attack.skill)?.rank ?? 0 }}{{ stats.skills.get(attack.skill)?.tag ?? false ? "*" : "" }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="effects">
+                {{ attack.effects.join(" ").replace(Effect.PERFORANT, Effect.PERFORANT + " " + attack.piercingRating) }}
+              </ion-col>
+              <ion-col class="effects">
+                {{ attack.qualities.join(" ") }}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+        <ion-col *ngFor="let attack of stats.attacks" class="attacks">
+          <ion-grid>
+            <ion-row>
+              <ion-col *ngIf="editionMode">
+                <ion-icon *ngIf="editionMode" (click)="deleteAttack(attack)" name="trash-outline" size="large"
+                          color="danger"></ion-icon>
+                <ion-icon *ngIf="editionMode" (click)="editAttack(attack)" name="pencil-outline" size="large"
+                          color="success"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>{{ attack.name }}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <app-rich-text-display [propertyText]="attack.damage +' $CD$'"></app-rich-text-display>
+                {{ attack.damageType.join(' / ') }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{ attack.cadence }}
+              </ion-col>
+              <ion-col>
+                {{ attack.reach }}
+              </ion-col>
+              <ion-col>
+                {{ attack.ammo }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                {{ attack.special.short }}
+              </ion-col>
+              <ion-col>
+                {{ attack.skill }}
+              </ion-col>
+              <ion-col class="target-number">
+                {{ +stats[attack.special.long.toLowerCase()] + stats.skills.get(attack.skill)?.rank ?? 0 }}{{ stats.skills.get(attack.skill)?.tag ?? false ? "*" : "" }}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col class="effects">
+                {{ attack.effects.join(" ").replace(Effect.PERFORANT, Effect.PERFORANT + " " + attack.piercingRating) }}
+              </ion-col>
+              <ion-col class="effects">
+                {{ attack.qualities.join(" ") }}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="header">{{'BESTIARY.INVENTORY' |translate}}</ion-col>
+        <ion-col class="header">{{ 'CHARACTERSHEET.PERKS.TITLE' |translate }}</ion-col>
+      </ion-row>
+      <ion-row *ngIf="stats.perks !== undefined">
+        <ion-col *ngFor="let entry of Array.from(stats.perks.entries())">
+          {{ entry[0].name }} {{ entry[1] !== 1 ? entry[1] : "" }}
+        </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col class="details-list ion-justify-content-start">
-          <ul>
-            <li *ngFor="let inventory of mob.inventory">
-              <strong>
-                <app-rich-text-display [propertyText]="inventory.title"></app-rich-text-display>
-              </strong> :
-              <app-rich-text-display [propertyText]="inventory.description"></app-rich-text-display>
-            </li>
-          </ul>
+        <ion-col class="header">{{ 'BESTIARY.INVENTORY' |translate }}</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-checkbox></ion-checkbox>
+          <img ngSrc="assets/icon/chems.png" height="24" width="24"/>
+          <ion-checkbox></ion-checkbox>
+          <img ngSrc="assets/icon/food.png" height="24" width="24"/>
+          <ion-checkbox></ion-checkbox>
+          <img ngSrc="assets/icon/drink.png" height="24" width="24"/>
+          <ion-checkbox></ion-checkbox>
+          <img ngSrc="assets/icon/chems.png" height="24" width="24"/>
+        </ion-col>
+        <ion-col size="12" size-sm="3" class="inventory-item" *ngFor="let inventory of stats.inventory | keyvalue">
+          {{inventory.value}} {{inventory.key["Name"]}}
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -117,16 +390,173 @@
 </ion-app>
 
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="toggle()">
-  <ion-fab-button >
-    <ion-icon name="pencil-outline"></ion-icon>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed" activated="true">
+  <ion-fab-button>
+    <ion-icon name="apps-outline"></ion-icon>
   </ion-fab-button>
   <ion-fab-list side="start">
-    <ion-fab-button color="danger" (click)="upgradeCreature()">
-      <ion-icon name="close-outline"></ion-icon>
+    <ion-fab-button (click)="formAttacksGroup.reset();isModalAttacksOpen = true;">
+      ATT
     </ion-fab-button>
-    <ion-fab-button color="success" (click)="upgradeCreature()">
-      <ion-icon name="checkmark-outline"></ion-icon>
+    <ion-fab-button (click)="selectNewItemForInventory()">
+      <ion-icon name="bag-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="perksModalOpen = true;">
+      <ion-icon name="book-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="editionMode = true">
+      <ion-icon name="pencil-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab-list>
 </ion-fab>
+
+<ion-fab vertical="bottom" horizontal="start" slot="end" *ngIf="editionMode === true">
+  <ion-row>
+    <ion-fab-button (click)="editionMode=false;revertStats()" color="danger">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button (click)="editionMode=false;saveStats()" color="success">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-row>
+</ion-fab>
+
+<ion-modal [isOpen]="isModalAttacksOpen" [initialBreakpoint]="0.7" [breakpoints]="[0,0.7]"
+           (didDismiss)="isModalAttacksOpen=false">
+  <ng-template>
+    <form [formGroup]="formAttacksGroup">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-input formControlName="name" placeholder="Nom..."></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input formControlName="damage" placeholder="Dégats"></ion-input>
+            <app-rich-text-display propertyText="$CD$"></app-rich-text-display>
+          </ion-col>
+          <ion-col>
+            <ion-select formControlName="damageType" multiple="true"
+                        [placeholder]="'CHARACTERSHEET.ATTACKS.TYPEDEGAT'|translate">
+              <ion-select-option value="BAL">Ballistique</ion-select-option>
+              <ion-select-option value="ENE">Énergétique</ion-select-option>
+              <ion-select-option value="POI">Poison</ion-select-option>
+              <ion-select-option value="RAD">Radiation</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select formControlName="special" [placeholder]="'SPECIAL' |translate">
+              <ion-select-option *ngFor="let special of Object.values(SPECIAL)"
+                                 [value]="special.short">{{ special.long | translate }}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col>
+            <div class="skill-row">
+              <ion-select formControlName="skill" [placeholder]="'SKILL' |translate">
+                <ion-select-option *ngFor="let skill of Object.values(SkillType)">{{ skill }}</ion-select-option>
+              </ion-select>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select formControlName="reach" [placeholder]="'CHARACTERSHEET.ATTACKS.REACH'|translate">
+              <ion-select-option value="1">Courte</ion-select-option>
+              <ion-select-option value="2">Moyenne</ion-select-option>
+              <ion-select-option value="3">Longue</ion-select-option>
+              <ion-select-option value="4">Extreme</ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col>
+            <ion-select formControlName="cadence" [placeholder]="'CHARACTERSHEET.ATTACKS.CADENCE'|translate">
+              <ion-select-option [value]="i" *ngFor="let cpt of Array.from(Array(20).keys()), let i = index">{{ i }}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+          <ion-col>
+            <ion-input formControlName="ammo" placeholder="Munitions"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select formControlName="effects" multiple="true" [placeholder]="'EFFET' |translate">
+              <ion-select-option *ngFor="let effect of Object.values(Effect)"
+                                 [value]="effect">{{ effect | translate }}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col *ngIf="formAttacksGroup.get('effects').value?.includes(Effect.PERFORANT)??false">
+            <ion-input formControlName="piercingRating"
+                       [placeholder]="'CHARACTERSHEET.ATTACKS.PIERCINGRATING' |translate"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select formControlName="qualities" multiple="true" [placeholder]="'QUALITIES' |translate">
+              <ion-select-option *ngFor="let quality of Object.values(Qualities)"
+                                 [value]="quality">{{ quality | translate }}
+              </ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" expand="block"
+                        (click)="resetAndCloseAttacksModal()">{{ "CHARACTERSHEET.ATTACKS.CANCEL" | translate }}
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button color="primary" expand="block"
+                        (click)="addAttackAndCloseAttacksModal()">{{ "CHARACTERSHEET.ATTACKS.ADD" | translate }}
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+  </ng-template>
+</ion-modal>
+
+<ion-modal (didDismiss)="perksModalOpen=false" [isOpen]="perksModalOpen" [initialBreakpoint]="0.7"
+           [breakpoints]="[0,0.7]">
+  <ng-template>
+    <ion-grid>
+      <ion-row>
+        <ion-select (ionChange)="selectPerk($event)" [placeholder]="'CHARACTERSHEET.PERKS.SELECT' | translate">
+          <ion-select-option *ngFor="let perk of perksResult" [value]="perk">{{ perk.name }}</ion-select-option>
+        </ion-select>
+      </ion-row>
+      <ion-row *ngIf="selectedPerk !== undefined">
+        <ion-list-header><h1>{{ selectedPerk.name }}</h1></ion-list-header>
+        <p>
+          <strong>Rangs</strong> : {{ selectedPerk.ranks }} <br/>
+          <strong>Prérequis</strong> :
+          {{ selectedPerk.s == 0 ? "" : ("PERKS.STRENGTH" | translate) + " " + selectedPerk.s }}
+          {{ selectedPerk.p == 0 ? "" : ("PERKS.PERCEPTION" | translate) + " " + selectedPerk.p }}
+          {{ selectedPerk.e == 0 ? "" : ("PERKS.ENDURANCE" | translate) + " " + selectedPerk.e }}
+          {{ selectedPerk.c == 0 ? "" : ("PERKS.CHARISMA" | translate) + " " + selectedPerk.c }}
+          {{ selectedPerk.i == 0 ? "" : ("PERKS.INTELLIGENCE" | translate) + " " + selectedPerk.i }}
+          {{ selectedPerk.a == 0 ? "" : ("PERKS.AGILITY" | translate) + " " + selectedPerk.a }}
+          {{ selectedPerk.l == 0 ? "" : ("PERKS.LUCK" | translate) + " " + selectedPerk.l }}
+          {{ selectedPerk.level == 0 ? "" : ("PERKS.LEVEL" | translate) + " " + selectedPerk.level + "+" }}
+          {{ selectedPerk.canRobot == false ? "" : ("PERKS.CANTROBOT" | translate) }}<br/>
+          <strong>Description</strong> :
+          <app-rich-text-display [propertyText]="selectedPerk.description"></app-rich-text-display>
+          <br/>
+        </p>
+      </ion-row>
+      <ion-row>
+        <ion-button color="primary" expand="block"
+                    (click)="perksModalOpen = false;addSelectedPerk()">{{ "CHARACTERSHEET.PERKS.ADD" | translate }}
+        </ion-button>
+      </ion-row>
+    </ion-grid>
+
+  </ng-template>
+</ion-modal>

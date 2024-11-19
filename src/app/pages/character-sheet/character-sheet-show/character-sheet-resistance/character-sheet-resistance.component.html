@@ -1,0 +1,24 @@
+<ion-col>
+  <span class="label">{{ label }}</span>
+</ion-col>
+<ion-col>
+  <ion-icon class="bal" name="shield-outline"></ion-icon>
+  <span *ngIf="!editable">{{ res.balResistance }}</span>
+  <ion-input *ngIf="editable" (input)="onChange()" class="ion-text-center editable" [(ngModel)]="res.balResistance"
+             type="number"></ion-input>
+
+  <ion-icon class="ene" name="flash-outline"></ion-icon>
+  <span *ngIf="!editable">{{ res.eneResistance }}</span>
+  <ion-input (input)="onChange()" *ngIf="editable" class="ion-text-center editable" [(ngModel)]="res.eneResistance"
+             type="number"></ion-input>
+</ion-col><ion-col>
+  <img src="assets/icon/radioactive.svg" class="img-icon rad" alt=""/>
+  <span *ngIf="!editable">{{ res.radResistance }}</span>
+  <ion-input (input)="onChange()" *ngIf="editable" class="ion-text-center editable" [(ngModel)]="res.radResistance"
+             type="number"></ion-input>
+
+  <ion-icon class="poi" name="skull-outline"></ion-icon>
+  <span *ngIf="!editable">{{ res.poiResistance }}</span>
+  <ion-input (input)="onChange()" *ngIf="editable" class="ion-text-center editable" [(ngModel)]="res.poiResistance"
+             type="number"></ion-input>
+</ion-col>

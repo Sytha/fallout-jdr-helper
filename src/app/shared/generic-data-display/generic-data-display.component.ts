@@ -5,6 +5,7 @@ import {DataId, DataTableDefinition} from "../../data/generic-data-lang";
 import {TranslateService} from "@ngx-translate/core";
 import {RECIPE_DEF, RECIPES} from "../../data/recipes/recipes-lang";
 import {LanguageService} from "../language.service";
+import {InventoryService} from "../../services/inventory-service";
 
 @Component({
   selector: 'app-generic-data-display',
@@ -12,8 +13,9 @@ import {LanguageService} from "../language.service";
   styleUrls: ['./generic-data-display.component.scss'],
 })
 export class GenericDataDisplayComponent implements OnInit {
+  protected currentCS: string;
 
-  constructor(private modalCtrl: ModalController, private translate: TranslateService, private languageService: LanguageService) {
+  constructor(private modalCtrl: ModalController, private translate: TranslateService, private languageService: LanguageService, private inventoryService: InventoryService) {
   }
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class GenericDataDisplayComponent implements OnInit {
         }
       });
     }
+    this.currentCS = this.inventoryService.currentCharacterSheetId;
   }
 
   @Input() genericItems: any[];
@@ -93,5 +96,9 @@ export class GenericDataDisplayComponent implements OnInit {
       label: '',
       generic: true
     };
+  }
+
+  addItemToCurrentInventory(data: DataId) {
+    this.inventoryService.addObjectToCurrentSheetInventory(data, this.currentCS);
   }
 }

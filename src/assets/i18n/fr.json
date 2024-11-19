@@ -191,6 +191,7 @@
     "ROBOTS": "Robots",
     "THINKERS": "Pensants",
     "DISPLAYEXTENDED": "Bestiaire étendu",
+    "TAG" : "Atout",
     "SOURCE": {
       "OFF": "Officiel",
       "EXT": "Etendu",
@@ -200,5 +201,51 @@
     "MELEEBONUS": "Bonus CaC",
     "CARRYWEIGHT": "Charge Maximale",
     "LUCKPOINT": "Points de chance"
+  },
+  "CHARACTERSHEET": {
+    "ATTACKS": {
+      "NAME" : "Nom",
+      "STATS" : "Statistiques",
+      "QUALITIES" : "Effets et qualités",
+      "AMMO" : "Munitions",
+      "DAMAGE" : "Dégats",
+      "TITLE" : "Attaques",
+      "TYPEDEGAT" : "Type dégat",
+      "CADENCE": "Cadence",
+      "REACH": "Portée",
+      "ADD": "Ajouter Arme",
+      "CANCEL": "Annuler",
+      "TN": "TN",
+      "REACHVALUE": {
+        "1": "C",
+        "2": "M",
+        "3": "L",
+        "4": "E"
+      }
+    },
+    "PERKS": {
+      "TITLE": "Compétences",
+      "SELECT": "Séléctionner une compétence",
+      "ADD": "Ajouter Compétence"
+    },
+    "SKILLS": {
+      "UNARMED" : "Mains nues",
+      "MELEEWEAPON" : "Armes CàC",
+      "LIGHTWEAPON" : "Armes Légères",
+      "HEAVYWEAPON" : "Armes Lourdes",
+      "ENERGYWEAPON" : "Armes Énergie",
+      "THROWING" : "Lancer",
+      "ATHLETIC" : "Athlétisme",
+      "LOCKPICK" : "Crochetage",
+      "SNEAK" : "Discrétion",
+      "EXPLOSIVES" : "Explosifs",
+      "MEDICINE" : "Médecine",
+      "PILOT" : "Pilotage",
+      "SCIENCE" : "Science",
+      "SURVIVAL" : "Survie",
+      "BARTER" : "Troc",
+      "REPAIR" : "Réparation",
+      "SPEECH" : "Discours"
+    }
   }
 }
