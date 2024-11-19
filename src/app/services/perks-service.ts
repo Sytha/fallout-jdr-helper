@@ -2,19 +2,7 @@ import {ToastController} from '@ionic/angular';
 import {Injectable} from '@angular/core';
 import {PerkDetail} from "../data/perks/perks.model";
 import {PERKS} from "../data/perks/perks";
-
-export interface Stats {
-  level:number;
-  s:number;
-  p:number;
-  e:number;
-  c:number;
-  i:number;
-  a:number;
-  l:number;
-  isRobot:boolean;
-  ownedPerks:Map<PerkDetail,number>;
-}
+import {CharacterStats} from "../pages/character-sheet/character-stats.model";
 
 @Injectable({providedIn: 'root'})
 export class PerksService {
@@ -22,20 +10,21 @@ export class PerksService {
   constructor() {
   }
 
-  findByCharacterStats(stats: Stats) : PerkDetail[]{
+  findByCharacterStats(stats: CharacterStats) : PerkDetail[]{
     const result: PerkDetail[] = [];
     for(let perk of PERKS){
-      const perkOwnedCount = stats.ownedPerks.get(perk)??0;
+      const perkOwnedCount = stats.perks?.get(perk)??0;
+      console.log(perkOwnedCount);
       const perkLevelCap = perk.level + perk.rankThreshold*(perkOwnedCount);
 
       if(!perk.canRobot && stats.isRobot) continue;
-      if(stats.s >= perk.s
-      && stats.p >= perk.p
-      && stats.e >= perk.e
-      && stats.c >= perk.c
-      && stats.i >= perk.i
-      && stats.a >= perk.a
-      && stats.l >= perk.l
+      if(stats.strength >= perk.s
+      && stats.perception >= perk.p
+      && stats.endurance >= perk.e
+      && stats.charisma >= perk.c
+      && stats.intelligence >= perk.i
+      && stats.agility >= perk.a
+      && stats.luck >= perk.l
       && perkOwnedCount < perk.ranks
       && stats.level >= perkLevelCap){
         result.push(perk);

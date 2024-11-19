@@ -1,7 +1,4 @@
 export interface MobDetails {
-currentXp: any;
-maxHealth: any;
-maxCarryWeight: any;
   typeDef: BestiaryType;
   name: string;
   level: string;
@@ -23,7 +20,7 @@ maxCarryWeight: any;
   initiative: string;
   defense: string;
   luckPoints?: string;
-  meleeBonus? : string;
+  meleeBonus?: string;
   carryWeight?: string;
   melee?: string;
   range?: string;
@@ -36,6 +33,9 @@ maxCarryWeight: any;
   effects: ElementKey[];
   inventory: ElementKey[];
   source: string;
+  currentXp?: any;
+  maxHealth?: any;
+  maxCarryWeight?: any;
 }
 
 export enum BestiaryType {

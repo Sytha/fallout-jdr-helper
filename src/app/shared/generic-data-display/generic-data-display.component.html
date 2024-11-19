@@ -1,6 +1,8 @@
 <ion-item *ngFor="let data of genericItems">
   <ion-icon *ngIf="dataId.moddable" icon="hammer" slot="end" class="mod-link"
             (click)="openModModal(data[dataId.definition[0].column])"></ion-icon>
+  <ion-icon *ngIf="currentCS !== undefined" icon="add" slot="end" class="add-inventory-link"
+            (click)="addItemToCurrentInventory(data)"></ion-icon>
   <ion-label text-wrap>
     <ng-container *ngFor="let column of dataId.definition; let i = index">
       <h1 *ngIf="i==0 && displayTitle">

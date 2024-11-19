@@ -16,6 +16,12 @@ ion-col.detail-list {
 ion-col.header {
   background-color: var(--dv-background-accent);
   color: #fff;
+
+  &.overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
 }
 
 span.details {
@@ -41,3 +47,183 @@ ion-input.editable.input-disabled {
   --opacity: 1;
   opacity: 1;
 }
+
+ion-col {
+  &.stats {
+    min-width:250px;
+    & > ion-input {
+      min-width:30px;
+    }
+  }
+  &.structural-col {
+    padding: 0px;
+    border: none;
+    flex-direction: column;
+  }
+
+  &.resistances {
+    display: grid;
+
+    & ion-row ion-col {
+      margin: 0 auto;
+
+      & ion-icon {
+        margin-left: 5px;
+        display: inline-block;
+        font-size: 25px;
+        vertical-align: middle;
+
+        &.ene {
+          color: #77c9ff;
+        }
+
+        &.rad {
+          color: #ffC977;
+        }
+
+        &.poi {
+          color: #00993b;
+        }
+      }
+
+      & > span {
+        display: inline-block;
+        vertical-align: middle;
+
+        & ion-input {
+          max-width: 50px;
+        }
+      }
+    }
+
+    & ion-row {
+      margin-top: 2px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.skill-button {
+  min-width: 2rem;
+  min-height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
+  font-size: 28px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  box-shadow: 1px 2px 3px #5e5d5b;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-checkbox::part(label) {
+  margin-bottom: 0;
+}
+
+.tag-checkbox ion-checkbox::part(label) {
+  margin-bottom: 0;
+}
+
+.button-plus {
+  background-color: green;
+}
+
+.button-minus {
+  background-color: #eb445a;
+  padding-bottom: 5px;
+}
+
+.button-trash {
+  background-color: #eb445a;
+  font-size: 24px;
+  padding: 2px;
+}
+
+ion-row.attacks {
+  border: solid 1px var(--dv-background-accent-dark);
+}
+
+ion-col.attacks {
+  justify-content: unset;
+  flex-direction: column;
+  border:none;
+}
+
+.target-number{
+  font-size:24px;
+  min-height:40px;
+  .target-number-icon{
+    position:absolute;
+    display:flex;
+    img {
+      width:36px;
+      height:36px;
+      margin:0;
+    }
+  }
+  .target-number-label{
+    position:absolute;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color:yellow;
+  }
+}
+
+.reach{
+  font-size:24px;
+  min-height:36px;
+  .reach-icon{
+    display:flex;
+    img {
+      width:36px;
+      height:36px;
+      margin:0;
+    }
+  }
+  .reach-label{
+    position:absolute;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color:white;
+  }
+}
+
+ion-row.add-weapon ion-col{
+  flex-direction: column;
+}
+
+div.skill-row{
+  display: flex;
+  flex-direction: row;
+}
+
+ion-col.effects{
+  font-size: 12sp;
+}
+
+.img-icon{
+  width:24px;
+  height:24px;
+  margin-left:5px;
+  &.cadence{
+    filter: invert(58%) sepia(49%) saturate(7495%) hue-rotate(166deg) brightness(101%) contrast(101%);
+  }
+  &.reach{
+    filter: invert(38%) sepia(90%) saturate(2732%) hue-rotate(108deg) brightness(96%) contrast(101%);
+  }
+  &.ammo{
+    filter: invert(67%) sepia(29%) saturate(1215%) hue-rotate(5deg) brightness(102%) contrast(104%);
+  }
+  &.radioactive{
+    filter: invert(56%) sepia(76%) saturate(4771%) hue-rotate(359deg) brightness(97%) contrast(103%);
+  }
+  &.tn{
+    filter: invert(28%) sepia(77%) saturate(2898%) hue-rotate(209deg) brightness(99%) contrast(104%);
+  }
+}
+
+.inventory-item{
+  justify-content: left;
+}
+
+
