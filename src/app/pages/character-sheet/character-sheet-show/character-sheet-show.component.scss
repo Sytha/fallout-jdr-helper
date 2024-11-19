@@ -16,6 +16,12 @@ ion-col.detail-list {
 ion-col.header {
   background-color: var(--dv-background-accent);
   color: #fff;
+
+  &.overflow {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
 }
 
 span.details {
@@ -41,3 +47,109 @@ ion-input.editable.input-disabled {
   --opacity: 1;
   opacity: 1;
 }
+
+ion-col {
+  &.structural-col {
+    display: block;
+    padding: 0px;
+    border: none;
+  }
+
+  &.resistances {
+    display: grid;
+
+    & ion-row ion-col {
+      margin: 0 auto;
+
+      & ion-icon {
+        margin-left: 5px;
+        display: inline-block;
+        font-size: 25px;
+        vertical-align: middle;
+
+        &.ene {
+          color: #77c9ff;
+        }
+
+        &.rad {
+          color: #ffC977;
+        }
+
+        &.poi {
+          color: #00993b;
+        }
+      }
+
+      & > span {
+        display: inline-block;
+        vertical-align: middle;
+
+        & ion-input {
+          max-width: 50px;
+        }
+      }
+    }
+
+    & ion-row {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.skill-button {
+  min-width: 2rem;
+  min-height: 2rem;
+  max-width: 2rem;
+  max-height: 2rem;
+  font-size: 28px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  box-shadow: 1px 2px 3px #5e5d5b;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ion-checkbox::part(label) {
+  margin-bottom: 0;
+}
+
+.tag-checkbox ion-checkbox::part(label) {
+  margin-bottom: 0;
+}
+
+.button-plus {
+  background-color: green;
+}
+
+.button-minus {
+  background-color: #eb445a;
+  padding-bottom: 5px;
+}
+
+.button-trash {
+  background-color: #eb445a;
+  font-size: 24px;
+  padding: 2px;
+}
+
+ion-col.attacks {
+  justify-content: unset;
+}
+
+ion-col.target-number{
+  font-size:24px;
+}
+
+ion-row.add-weapon ion-col{
+  flex-direction: column;
+}
+
+div.skill-row{
+  display: flex;
+  flex-direction: row;
+}
+
+
