@@ -13,6 +13,9 @@ export const RECIPE_DEF_FR: DataTableDefinition[] = [{
   column: 'Perk',
   label: 'Aptitude'
 }, {
+  column: 'PV',
+  label: 'Points de vie'
+}, {
   column: 'Skill',
   label: 'Compétence'
 }, {

@@ -207,7 +207,7 @@ export const GLOBAL_ARMOR_MODS_EN = [
 
 export const GLOBAL_POWER_ARMOR_MODS_EN = [
   {
-    "Name": "Epurateur de radiations",
+    "Name": "Épurateur de radiations",
     "Type": "Système",
     "Localisation": "Tête",
     "Effect1": "Ignorez les dégâts de radiation venant de la nourriture ou des boissons Irradiées consommées tant que l'armure est alimentée en énergie",
@@ -309,7 +309,7 @@ export const GLOBAL_POWER_ARMOR_MODS_EN = [
     "Name": "Pompe médicale",
     "Type": "Système",
     "Localisation": "Buste",
-    "Effect1": "Tant que l'armure est alimentée en énergie, quand vos PV tombent en desous de la moitié de votre maximum, vous utilisez immédiatement un Stimpack et vous regagnez 3 PV ou vous traitez 1 blessure",
+    "Effect1": "Tant que l'armure est alimentée en énergie, quand vos PV tombent en desous de la moitié de votre maximum, vous utilisez immédiatement un Stimpak et vous regagnez 3 PV ou vous traitez 1 blessure",
     "Effect2": "",
     "Weight": "+ 1 kg",
     "Cost": "+ 100 Caps",
@@ -416,7 +416,7 @@ export const GLOBAL_POWER_ARMOR_MODS_EN = [
     "InstallSkill": "Sciences"
   },
   {
-    "Name": "Event d'explosion",
+    "Name": "Évent d'explosion",
     "Type": "Système",
     "Localisation": "Jambe",
     "Effect1": "Tant que l'armure est alimentée en énergie, quand vous atterrissez depuis une hauteur, vous infligez 4 $CD$ de dégâts à toutes les créatures et objets pouvant subir des dégâts à portée courte",
@@ -482,7 +482,7 @@ export const GLOBAL_POWER_ARMOR_MODS_EN = [
     "InstallSkill": "Sciences"
   },
   {
-    "Name": "Blindage antiexplosion",
+    "Name": "Blindage anti-explosion",
     "Type": "Blindage",
     "Localisation": "N'importe laquelle",
     "Effect1": "+ 2 à toutes les résistances aux dégâts contre les armes à Zone d'impact",

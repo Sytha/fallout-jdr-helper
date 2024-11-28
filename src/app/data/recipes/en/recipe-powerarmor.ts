@@ -200,7 +200,7 @@ export const RECIPE_POWERARMOR_STATION_EN = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Barre d'armature soudée (Pillard Uniquement)",
+    "Name": "(Pillard) Barre d'armature soudée",
     "Components": "$DEFAULT$",
     "Complexity": 2,
     "Perk": "Armurier 1",
@@ -232,7 +232,7 @@ export const RECIPE_POWERARMOR_STATION_EN = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Servomoteurs de déplacement assistés",
+    "Name": "Servomoteurs de déplacement assisté",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Scientifique 3",
@@ -368,7 +368,7 @@ export const RECIPE_POWERARMOR_STATION_EN = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Revêtement antigel (sauf X-01)",
+    "Name": "(sauf X-01) Revêtement antigel",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "Armurier 1",

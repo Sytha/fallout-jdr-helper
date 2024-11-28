@@ -58,11 +58,11 @@ export const LOOT_CHEMS_EN = [
   },
   {
     "Dice": 16,
-    "Loot": "Rad-X (dilué)"
+    "Loot": "Rad-X (Diluted)"
   },
   {
     "Dice": 17,
-    "Loot": "Rad-X (dilué)"
+    "Loot": "Rad-X (Diluted)"
   },
   {
     "Dice": 18,
@@ -86,19 +86,19 @@ export const LOOT_CHEMS_EN = [
   },
   {
     "Dice": 23,
-    "Loot": "Stimpak (dilué)"
+    "Loot": "Stimpak (Dilué)"
   },
   {
     "Dice": 24,
-    "Loot": "Stimpak (dilué)"
+    "Loot": "Stimpak (Dilué)"
   },
   {
     "Dice": 25,
-    "Loot": "RadAway (dilué)"
+    "Loot": "RadAway (Dilué)"
   },
   {
     "Dice": 26,
-    "Loot": "RadAway (dilué)"
+    "Loot": "RadAway (Dilué)"
   },
   {
     "Dice": 27,

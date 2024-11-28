@@ -1,7 +1,7 @@
 export const MOD_ENERGY_WEAPON_DATA_FR = {
   "Laser de l'Institut": [
     {
-      "Name": "Stimulateur de photons",
+      "Name": "Stimulateur de photons (Léger)",
       "Type": "Condensateur",
       "Effect1": "Gagne Brutal",
       "Effect2": "",
@@ -413,7 +413,7 @@ export const MOD_ENERGY_WEAPON_DATA_FR = {
   ],
   "Arme laser": [
     {
-      "Name": "Stimulateur de photons",
+      "Name": "Stimulateur de photons (Léger)",
       "Type": "Condensateur",
       "Effect1": "Gagne Brutal",
       "Effect2": "",
@@ -667,7 +667,7 @@ export const MOD_ENERGY_WEAPON_DATA_FR = {
   ],
   "Arme plasma": [
     {
-      "Name": "Stimulateur de photons",
+      "Name": "Stimulateur de photons (Léger)",
       "Type": "Condensateur",
       "Effect1": "Gagne Brutal",
       "Effect2": "",

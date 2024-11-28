@@ -74,7 +74,7 @@ export class GenericDataDisplayComponent implements OnInit {
     RECIPES.forEach(recipeType => {
       const candidatesRecipes = recipeType[this.languageService.getCurrentLanguage()];
       for (let candidatesRecipe of candidatesRecipes) {
-        if (candidatesRecipe['Name'].toLowerCase().includes(itemName.toLowerCase())) {
+        if (candidatesRecipe['Name'].toLowerCase().endsWith(itemName.toLowerCase())) {
           matchingRecipe = candidatesRecipe;
           break;
         }

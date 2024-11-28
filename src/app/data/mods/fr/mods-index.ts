@@ -38,6 +38,10 @@ export const MOD_DEF_FR: DataTableDefinition[] = [
     label: 'Parties couvertes'
   },
   {
+    column: 'PV',
+    label: 'Points de vie'
+  },
+  {
     column: 'Effect1',
     label: 'Effet 1'
   },

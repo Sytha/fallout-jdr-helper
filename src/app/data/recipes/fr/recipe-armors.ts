@@ -40,7 +40,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Rare"
   },
   {
-    "Name": "Abri - Revêtement isolant",
+    "Name": "Abri Revêtement isolant",
     "Components": "$DEFAULT$",
     "Complexity": 2,
     "Perk": "–",
@@ -48,7 +48,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Abri - Revêtement traité",
+    "Name": "Abri Revêtement traité",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "Armurier 2",
@@ -56,7 +56,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Abri - Revêtement résistant",
+    "Name": "Abri Revêtement résistant",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 3",
@@ -64,7 +64,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Abri - Revêtement protecteur",
+    "Name": "Abri Revêtement protecteur",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 4, Scientifique 2",
@@ -72,7 +72,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Abri - Revêtement blindé",
+    "Name": "Abri Revêtement blindé",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Armurier 4, Scientifique 4",
@@ -80,7 +80,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Pillard - Soudé",
+    "Name": "Pillard Soudé",
     "Components": "$DEFAULT$",
     "Complexity": 2,
     "Perk": "–",
@@ -88,7 +88,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Pillard -Trempé",
+    "Name": "Pillard Trempé",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "–",
@@ -96,7 +96,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Pillard -Renforcé",
+    "Name": "Pillard Renforcé",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 1",
@@ -104,7 +104,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Pillard - Étayé",
+    "Name": "Pillard Étayé",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 1",
@@ -112,7 +112,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Cuir - Bouilli",
+    "Name": "Cuir Bouilli",
     "Components": "$DEFAULT$",
     "Complexity": 2,
     "Perk": "–",
@@ -120,7 +120,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Cuir - Armé",
+    "Name": "Cuir Armé",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "–",
@@ -128,7 +128,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Cuir - Traité",
+    "Name": "Cuir Traité",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 1",
@@ -136,7 +136,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Cuir - Ombré",
+    "Name": "Cuir Ombré",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 1",
@@ -144,7 +144,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Cuir - Clouté",
+    "Name": "Cuir Clouté",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Armurier 1",
@@ -152,7 +152,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Métal - Peint",
+    "Name": "Métal Peint",
     "Components": "$DEFAULT$",
     "Complexity": 2,
     "Perk": "–",
@@ -160,7 +160,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Métal - Émaillé",
+    "Name": "Métal Émaillé",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "Armurier 1",
@@ -168,7 +168,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": ""
   },
   {
-    "Name": "Métal - Ombré",
+    "Name": "Métal Ombré",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 1",
@@ -176,7 +176,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Métal - Allié",
+    "Name": "Métal Allié",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 1",
@@ -184,7 +184,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Métal - Poli",
+    "Name": "Métal Poli",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Armurier 2",
@@ -192,7 +192,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Combat - Renforcé",
+    "Name": "Combat Renforcé",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "–",
@@ -200,7 +200,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Combat - Ombré",
+    "Name": "Combat Ombré",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 1",
@@ -208,7 +208,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Combat - Fibre de verre",
+    "Name": "Combat Fibre de verre",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 1",
@@ -216,7 +216,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Combat - Polymère",
+    "Name": "Combat Polymère",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Armurier 1",
@@ -224,7 +224,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Synthétique - Stratifié",
+    "Name": "Synthétique Stratifié",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "–",
@@ -232,7 +232,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Synthétique - Résineux",
+    "Name": "Synthétique Résineux",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 1",
@@ -240,7 +240,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "fréquente"
   },
   {
-    "Name": "Synthétique - Microfibre de carbone",
+    "Name": "Synthétique Microfibre de carbone",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Armurier 1",
@@ -248,7 +248,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Synthétique - Nanofilament",
+    "Name": "Synthétique Nanofilament",
     "Components": "$DEFAULT$",
     "Complexity": 7,
     "Perk": "Armurier 1",
@@ -256,7 +256,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Structure légère",
+    "Name": "Structure légère",
     "Components": "$DEFAULT$",
     "Complexity": 2,
     "Perk": "–",
@@ -264,7 +264,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Mod - Poches",
+    "Name": "Poches",
     "Components": "$DEFAULT$",
     "Complexity": 2,
     "Perk": "–",
@@ -272,7 +272,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Larges poches",
+    "Name": "Larges poches",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 2",
@@ -280,7 +280,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Revêtement en plomb",
+    "Name": "Revêtement en plomb",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 2, Scientifique 1",
@@ -288,7 +288,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Structure ultra légère",
+    "Name": "Structure ultra légère",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 3",
@@ -296,7 +296,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Rembourrage (uniquement sur torse)",
+    "Name": "(Torse) Rembourrage",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "–",
@@ -304,7 +304,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Mod - Revêtement amianté (uniquement sur torse)",
+    "Name": "(Torse) Revêtement amianté",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 1",
@@ -312,7 +312,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Densifié (uniquement sur torse)",
+    "Name": "(Torse) Densifié",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Armurier 3",
@@ -320,7 +320,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - BioCommMesh (uniquement sur torse)",
+    "Name": "(Torse) BioCommMesh",
     "Components": "$DEFAULT$",
     "Complexity": 7,
     "Perk": "Armurier 4, Scientifique 2",
@@ -328,7 +328,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Pneumatique (uniquement sur torse)",
+    "Name": "(Torse) Pneumatique",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Armurier 4",
@@ -336,7 +336,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Bagarreur (uniquement sur bras)",
+    "Name": "(Bras) Bagarreur",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "Armurier 1",
@@ -344,7 +344,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Renforcé (uniquement sur bras)",
+    "Name": "(Bras) Renforcé",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "Armurier 1",
@@ -352,7 +352,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Stabilisé (uniquement sur bras)",
+    "Name": "(Bras) Stabilisé",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 2",
@@ -360,7 +360,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Aérodynamique (uniquement sur bras)",
+    "Name": "(Bras) Aérodynamique",
     "Components": "$DEFAULT$",
     "Complexity": 5,
     "Perk": "Armurier 3",
@@ -368,7 +368,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Alourdie (uniquement sur bras)",
+    "Name": "(Bras) Alourdi",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Armurier",
@@ -376,7 +376,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Amorti (uniquement sur jambes)",
+    "Name": "(Jambes) Amortissement",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "Armurier 1",
@@ -384,7 +384,7 @@ export const RECIPE_ARMOR_STATION_FR = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Mod - Silencieux (uniquement sur jambes)",
+    "Name": "(Jambes) Silencieux",
     "Components": "$DEFAULT$",
     "Complexity": 4,
     "Perk": "Armurier 2",

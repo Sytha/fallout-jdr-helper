@@ -173,7 +173,7 @@ export const MOD_HEAVY_WEAPON_DATA_EN = {
   ],
   "Gatling Laser": [
     {
-      "Name": "Stimulateur de photons",
+      "Name": "Stimulateur de photons (Heavy)",
       "Type": "Condensateur",
       "Effect1": "Gagne Brutal",
       "Effect2": "",

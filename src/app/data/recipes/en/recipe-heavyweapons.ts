@@ -72,7 +72,7 @@ export const RECIPE_HEAVYWEAPONS_STATION_EN = [
     "Rarity": "Peu fréquente"
   },
   {
-    "Name": "Gatling laser - Stimulateur de photons",
+    "Name": "Stimulateur de photons (Heavy)",
     "Components": "$DEFAULT$",
     "Complexity": 6,
     "Perk": "Scientifique 3",

@@ -265,7 +265,7 @@ export const CHEMS_LOOT_DATA_FR = [
     id: 'c-24'
   },
   {
-    Name: 'RadAway (dilué)',
+    Name: 'RadAway (Dilué)',
     Effect: 'Guérit 2 points de dégâts de radiation (voir description RadAway)',
     Duration: 'Instantanée',
     Addictive: 'Non',
@@ -285,7 +285,7 @@ export const CHEMS_LOOT_DATA_FR = [
     id: 'c-26'
   },
   {
-    Name: 'Rad-X (dilué)',
+    Name: 'Rad-X (Dilué)',
     Effect: '+3 résistance aux dégâts de radiation',
     Duration: 'Durable',
     Addictive: 'Non',
@@ -305,7 +305,7 @@ export const CHEMS_LOOT_DATA_FR = [
     id: 'c-28'
   },
   {
-    Name: 'Stimpak (dilué)',
+    Name: 'Stimpak (Dilué)',
     Effect: 'Guérit 2 PV (voir Stimpak)',
     Duration: 'Instantanée',
     Addictive: 'Non',

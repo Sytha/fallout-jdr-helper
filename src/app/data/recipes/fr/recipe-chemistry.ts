@@ -16,7 +16,7 @@ export const RECIPE_CHEMISTRY_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Boisson rafraichissante",
+    "Name": "Boisson rafraîchissante",
     "Components": "Matériaux rares x3, Poche de sang x1, Eau purifiée x2, RadAway x2, Stimpak x1",
     "Complexity": 5,
     "Perk": "–",
@@ -152,16 +152,16 @@ export const RECIPE_CHEMISTRY_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "RadAway Dilué",
-    "Components": "RadAway x1, Eau purifiée x1",
+    "Name": "RadAway (Dilué)",
+    "Components": "RadAway x1, Eau purifiée x1 (pour 2)",
     "Complexity": 2,
     "Perk": "–",
     "Skill": "Science",
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Rad-X Dilué",
-    "Components": "Rad-X x1, Eau purifiée x1",
+    "Name": "Rad-X (Dilué)",
+    "Components": "Rad-X x1, Eau purifiée x1 (pour 2)",
     "Complexity": 2,
     "Perk": "–",
     "Skill": "Science",
@@ -176,8 +176,8 @@ export const RECIPE_CHEMISTRY_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Stimpak Dilué",
-    "Components": "Stimpak x1, Eau purifiée x1",
+    "Name": "Stimpak (Dilué)",
+    "Components": "Stimpak x1, Eau purifiée x1 (pour 2)",
     "Complexity": 2,
     "Perk": "–",
     "Skill": "Science",

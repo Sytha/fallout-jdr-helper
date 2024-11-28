@@ -16,7 +16,7 @@ export const RECIPE_ENERGYWEAPONS_STATION_FR = [
     "Rarity": "Fréquente"
   },
   {
-    "Name": "Stimulateur de photons",
+    "Name": "Stimulateur de photons (Léger)",
     "Components": "$DEFAULT$",
     "Complexity": 3,
     "Perk": "Scientifique 1",

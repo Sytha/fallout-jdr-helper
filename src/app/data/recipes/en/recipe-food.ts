@@ -33,11 +33,11 @@ export const RECIPE_FOOD_STATION_EN = [
   },
   {
     "Name": "Brochette d'iguane",
-    "Components": "Bouchées d'iguane x1",
-    "Complexity": "Matériaux fréquents x1",
-    "Perk": 2,
-    "Skill": "–",
-    "Rarity": "Survie"
+    "Components": "Bouchées d'iguane x1, Matériaux fréquents x1",
+    "Complexity": "2",
+    "Perk": "",
+    "Skill": "Survie",
+    "Rarity": "Fréquente"
   },
   {
     "Name": "Côtes de chien",
