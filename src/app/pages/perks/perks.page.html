@@ -1,0 +1,81 @@
+<ion-app>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-icon icon="bulb" slot="start" size="large"></ion-icon>
+      <ion-title class="ion-text-capitalize">{{ "APP.MENU.PERKS" | translate }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-note>{{ "PERKS.INFO" | translate }}</ion-note>
+
+    <ion-row>
+      <ion-col class="search-col">
+        S
+        <ion-input type="number" (ionInput)="search()" [(ngModel)]="s" min="4" max="12"></ion-input>
+      </ion-col>
+      <ion-col class="search-col">
+        P
+        <ion-input type="number" (ionInput)="search()" [(ngModel)]="p" min="4" max="12"></ion-input>
+      </ion-col>
+      <ion-col class="search-col">
+        E
+        <ion-input type="number" (ionInput)="search()" [(ngModel)]="e" min="4" max="12"></ion-input>
+      </ion-col>
+      <ion-col class="search-col">
+        C
+        <ion-input type="number" (ionInput)="search()" [(ngModel)]="c" min="4" max="12"></ion-input>
+      </ion-col>
+      <ion-col class="search-col">
+        I
+        <ion-input type="number" (ionInput)="search()" [(ngModel)]="i" min="4" max="12"></ion-input>
+      </ion-col>
+      <ion-col class="search-col">
+        A
+        <ion-input type="number" (ionInput)="search()" [(ngModel)]="a" min="4" max="12"></ion-input>
+      </ion-col>
+      <ion-col class="search-col">
+        L
+        <ion-input type="number" (ionInput)="search()" [(ngModel)]="l" min="4" max="12"></ion-input>
+      </ion-col>
+      <ion-col class="search-col">
+        LVL
+        <ion-input type="number" (ionInput)="search()" [(ngModel)]="level" min="1"></ion-input>
+      </ion-col>
+      <ion-col>
+        <ion-checkbox type="checkbox" aria-label='MIND' name="mind"
+                      label-placement="stacked" alignment="center" fill="outline" [(ngModel)]="isRobot">Robot
+        </ion-checkbox>
+      </ion-col>
+    </ion-row>
+
+    <ion-searchbar [placeholder]="'PERKS.FILTER' | translate" show-clear-button="focus"
+                   debounce="200" (ionInput)="searchPerks()" [(ngModel)]="searchQuery"></ion-searchbar>
+
+    <ion-list>
+      <ng-container *ngFor="let perk of filteredResult">
+        <ion-list-header><h1>{{ perk.name }}</h1></ion-list-header>
+        <p>
+          <strong>Rangs</strong> : {{ perk.ranks }} <br/>
+          <strong>Prérequis</strong> :
+          {{ perk.s == 0 ? "" : ("PERKS.STRENGTH" | translate) + " " + perk.s }}
+          {{ perk.p == 0 ? "" : ("PERKS.PERCEPTION" | translate) + " " + perk.p }}
+          {{ perk.e == 0 ? "" : ("PERKS.ENDURANCE" | translate) + " " + perk.e }}
+          {{ perk.c == 0 ? "" : ("PERKS.CHARISMA" | translate) + " " + perk.c }}
+          {{ perk.i == 0 ? "" : ("PERKS.INTELLIGENCE" | translate) + " " + perk.i }}
+          {{ perk.a == 0 ? "" : ("PERKS.AGILITY" | translate) + " " + perk.a }}
+          {{ perk.l == 0 ? "" : ("PERKS.LUCK" | translate) + " " + perk.l }}
+          {{ perk.level == 0 ? "" : ("PERKS.LEVEL" | translate) + " " + perk.level + "+" }}
+          {{ perk.canRobot == false ? "" : ("PERKS.CANTROBOT" | translate)}}<br/>
+          <strong>Description</strong> :
+          <app-rich-text-display [propertyText]="perk.description"></app-rich-text-display>
+          <br/>
+        </p>
+      </ng-container>
+    </ion-list>
+  </ion-content>
+</ion-app>
